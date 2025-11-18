@@ -17,16 +17,16 @@ def ejemplo_minimo():
     """
     Ejemplo mínimo: Lluvia → Paraguas → Llegada seca
     """
-    print("🌧️ EJEMPLO MÍNIMO: MODELO CAUSAL SIMPLE")
+    print("EJEMPLO MÍNIMO: MODELO CAUSAL SIMPLE")
     print("=" * 50)
     print()
-    print("📋 Problema: ¿Llegará una persona seca a destino?")
-    print("📋 Variables:")
+    print("Problema: ¿Llegará una persona seca a destino?")
+    print("Variables:")
     print("   • lluvia: Intensidad de lluvia (0-10)")
     print("   • paraguas: ¿Llevó paraguas? (0=no, 1=sí)")
     print("   • llega_seca: ¿Llegó seca? (0=no, 1=sí)")
     print()
-    print("📋 Modelo causal: lluvia → paraguas → llega_seca")
+    print("Modelo causal: lluvia → paraguas → llega_seca")
     print("   • Más lluvia aumenta probabilidad de llevar paraguas")
     print("   • Llevar paraguas aumenta probabilidad de llegar seco")
     print()
@@ -89,13 +89,13 @@ def ejemplo_minimo():
     # 5. Analizar importancia causal
     importancia = clasificador.get_feature_importance()
     
-    print("\n🔍 ANÁLISIS CAUSAL:")
+    print("\nANÁLISIS CAUSAL:")
     print("Importancia de variables:")
     for var, imp in importancia.items():
         print(f"   • {var}: {imp:.3f}")
     
     # 6. Hacer predicción específica
-    print("\n🎯 PREDICCIONES ESPECÍFICAS:")
+    print("\nPREDICCIONES ESPECÍFICAS:")
     
     # Caso 1: Lluvia intensa, sin paraguas
     caso1 = pd.DataFrame({'lluvia': [8.0], 'paraguas': [0]})
@@ -115,7 +115,7 @@ def ejemplo_minimo():
     print(f"\n💡 Efecto del paraguas: +{pred2-pred1:.2f} probabilidad")
     
     # 7. Análisis de independencias
-    print("\n🧮 ANÁLISIS DE INDEPENDENCIAS:")
+    print("\nANÁLISIS DE INDEPENDENCIAS:")
     
     # ¿Son lluvia y llegar seco independientes?
     indep1 = dag.is_d_separated('lluvia', 'llega_seca', [])
@@ -125,7 +125,7 @@ def ejemplo_minimo():
     indep2 = dag.is_d_separated('lluvia', 'llega_seca', ['paraguas'])
     print(f"   lluvia ⊥ llega_seca | paraguas: {'Sí' if indep2 else 'No'}")
     
-    print("\n✅ RESUMEN:")
+    print("\nRESUMEN:")
     print("• El modelo causal captura correctamente la lógica del problema")
     print("• Llevar paraguas aumenta significativamente la probabilidad de llegar seco")
     print("• La lluvia afecta indirectamente (vía motivar a llevar paraguas)")
@@ -138,7 +138,7 @@ def comparar_con_correlacion(datos, objetivo):
     """
     Compara el enfoque causal con análisis de correlación simple
     """
-    print("\n⚖️ COMPARACIÓN: CAUSAL vs CORRELACIÓN")
+    print("\nCOMPARACIÓN: CAUSAL vs CORRELACIÓN")
     print("=" * 50)
     
     # Calcular correlaciones
@@ -147,11 +147,11 @@ def comparar_con_correlacion(datos, objetivo):
     
     correlaciones = datos_completos.corr()['llega_seca'].drop('llega_seca')
     
-    print("📊 CORRELACIONES:")
+    print("CORRELACIONES:")
     for var, corr in correlaciones.items():
         print(f"   • {var} ↔ llega_seca: {corr:.3f}")
     
-    print("\n🔍 DIFERENCIAS CLAVE:")
+    print("\nDIFERENCIAS CLAVE:")
     print("   CORRELACIÓN dice:")
     print("     • Paraguas correlaciona positivamente con llegar seco")
     print("     • Lluvia correlaciona negativamente con llegar seco")
@@ -169,7 +169,7 @@ def comparar_con_correlacion(datos, objetivo):
 
 def main():
     """Ejecutar ejemplo mínimo completo"""
-    print("🎯 CLASIFICADOR CAUSAL - EJEMPLO MÍNIMO")
+    print("CLASIFICADOR CAUSAL - EJEMPLO MÍNIMO")
     print("Este ejemplo te introduce a los conceptos básicos")
     print("del aprendizaje causal de forma simple y clara.")
     print()
@@ -181,14 +181,14 @@ def main():
     comparar_con_correlacion(datos, objetivo)
     
     print("\n" + "="*50)
-    print("🎉 EJEMPLO MÍNIMO COMPLETADO")
+    print("EJEMPLO MÍNIMO COMPLETADO")
     print("="*50)
-    print("\n🚀 Has aprendido:")
+    print("\nHas aprendido:")
     print("• Cómo construir un DAG causal simple")
     print("• Cómo entrenar un clasificador causal")
     print("• La diferencia entre correlación y causación")
     print("• Cómo hacer predicciones causales específicas")
-    print("\n📚 Siguiente paso:")
+    print("\nSiguiente paso:")
     print("• Ejecuta 'python tutorial.py' para aprender más")
     print("• O 'python causal_classifier.py' para ejemplos avanzados")
 
