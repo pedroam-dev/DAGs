@@ -1,8 +1,8 @@
-# Clasificador de Aprendizaje Causal con DAGs
+# Clasificador de aprendizaje causal con DAGs
 
 Este repositorio implementa un sistema de clasificación basado en **Modelos Gráficos Causales (DAGs)** que permite realizar inferencia causal y clasificación considerando las relaciones causales entre variables.
 
-## Características Principales
+## Características principales
 
 - **Modelos Causales**: Implementación de DAGs (Directed Acyclic Graphs) para representar relaciones causales
 - **Clasificación Causal**: Algoritmo de clasificación que incorpora conocimiento causal del dominio
@@ -21,9 +21,9 @@ cd DAGs
 pip install -r requirements.txt
 ```
 
-## Uso Rápido
+## Uso rápido
 
-### Ejemplo Básico: Riesgo Cardiovascular
+### Ejemplo básico: riesgo cardiovascular
 
 ```python
 from causal_classifier import CausalDAG, CausalClassifier, generate_causal_data
@@ -49,26 +49,26 @@ predictions = classifier.predict(X_test)
 probabilities = classifier.predict_proba(X_test)
 ```
 
-### Ejecutar Demo Completa
+### Ejecutar demo completa
 
 ```bash
 python causal_classifier.py
 ```
 
-## Estructura del Proyecto
+## Estructura del proyecto
 
 ```
 DAGs/
 ├── causal_classifier.py    # Implementación principal del clasificador causal
 ├── marketing_example.py    # Ejemplo avanzado: análisis de marketing digital
 ├── requirements.txt        # Dependencias del proyecto
-├── setup.py               # Script de instalación
-└── README.md              # Esta documentación
+├── setup.py                # Script de instalación
+└── README.md               # Esta documentación
 ```
 
-## Conceptos Fundamentales
+## Conceptos fundamentales
 
-### Modelos Gráficos Causales (DAGs)
+### Modelos gráficos Causales (DAGs)
 
 Un **DAG causal** es un grafo dirigido sin ciclos donde:
 - **Nodos**: Representan variables del dominio
@@ -81,14 +81,14 @@ La **d-separación** es un criterio gráfico para determinar independencias cond
 - Si X e Y están d-separados dado Z en el DAG, entonces X ⊥ Y | Z
 - Permite identificar qué variables son relevantes para la predicción
 
-### Clasificación Causal
+### Clasificación causal
 
 El clasificador causal incorpora:
 1. **Efectos causales directos**: Relaciones padre-hijo en el DAG
 2. **Efectos causales indirectos**: Rutas causales a través de múltiples variables
 3. **Características causales**: Features derivadas de la estructura causal
 
-## Ejemplos Incluidos
+## Ejemplos incluidos
 
 ### 1. Riesgo Cardiovascular (Medicina)
 
@@ -100,7 +100,7 @@ El clasificador causal incorpora:
 - Dieta → Colesterol, Peso
 - Factores de riesgo → Riesgo cardiovascular
 
-### 2. Conversión de Marketing (Business)
+### 2. Conversión de marketing (Negocios)
 
 **Variables**: edad, ingresos, canal marketing, interés, exposición, engagement
 **Objetivo**: Predecir conversión de clientes
@@ -110,7 +110,7 @@ El clasificador causal incorpora:
 - Interés + Exposición → Engagement
 - Interés + Exposición + Engagement → Conversión
 
-## API Principal
+## API principal
 
 ### CausalDAG
 
@@ -146,12 +146,12 @@ probabilities = classifier.predict_proba(X_test)
 importance = classifier.get_feature_importance()
 ```
 
-## Ventajas del Enfoque Causal
+## Ventajas del enfoque causal
 
 1. **Interpretabilidad**: Las predicciones están basadas en relaciones causales conocidas
 2. **Robustez**: Menor sensibilidad a cambios en la distribución de datos
-3. **Insights Accionables**: Identifica intervenciones que pueden cambiar el resultado
-4. **Incorporación de Conocimiento**: Utiliza expertise del dominio en el modelo
+3. **Insights accionables**: Identifica intervenciones que pueden cambiar el resultado
+4. **Incorporación de conocimiento**: Utiliza expertise del dominio en el modelo
 5. **Transferibilidad**: Mejor generalización a nuevos contextos
 
 ## Dependencias
@@ -165,19 +165,19 @@ importance = classifier.get_feature_importance()
 - `scikit-learn>=1.0.0`: Aprendizaje automático
 - `graphviz>=0.17.0`: Visualización de grafos
 
-## Algoritmos Implementados
+## Algoritmos implementados
 
-### 1. Construcción del DAG Causal
+### 1. Construcción del DAG causal
 - Verificación de aciclic en tiempo real
 - Validación de relaciones causales
 - Cálculo de efectos causales directos e indirectos
 
-### 2. Clasificación Causal
+### 2. Clasificación causal
 - Extracción de características causales
 - Cálculo de scores causales basados en el DAG
 - Umbralización adaptativa para clasificación
 
-### 3. Análisis de Independencias
+### 3. Análisis de independencias
 - Implementación del criterio de d-separación
 - Identificación de variables confusoras
 - Análisis de rutas causales
