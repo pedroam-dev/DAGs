@@ -558,24 +558,24 @@ def analyze_causal_effects(dag: CausalDAG, data: pd.DataFrame, target: str):
 
 
 if __name__ == "__main__":
-    print("🧠 CLASIFICADOR DE APRENDIZAJE CAUSAL - DEMO")
+    print("CLASIFICADOR DE APRENDIZAJE CAUSAL - DEMO")
     print("=" * 60)
     print()
     
     # Generar datos sintéticos
-    print("📊 Generando datos sintéticos del modelo médico...")
+    print("Generando datos sintéticos del modelo médico...")
     X, y = generate_causal_data(n_samples=1000, noise_level=0.1)
-    print(f"✓ Generadas {len(X)} muestras con {len(X.columns)} variables")
+    print(f"Generadas {len(X)} muestras con {len(X.columns)} variables")
     print()
     
     # Crear DAG causal
-    print("🏗️ Construyendo DAG causal...")
+    print("Construyendo DAG causal...")
     dag = create_medical_dag()
-    print(f"✓ DAG creado con {len(dag.variables)} variables y {len(dag.graph.edges)} aristas causales")
+    print(f"DAG creado con {len(dag.variables)} variables y {len(dag.graph.edges)} aristas causales")
     print()
     
     # Visualizar el DAG
-    print("📈 Visualizando estructura causal...")
+    print("Visualizando estructura causal...")
     dag.visualize(title="Modelo Causal: Riesgo Cardiovascular")
     
     # Análisis causal
@@ -586,30 +586,30 @@ if __name__ == "__main__":
         X, y, test_size=0.3, random_state=42, stratify=y
     )
     
-    print(f"📋 División de datos:")
+    print(f"División de datos:")
     print(f"   • Entrenamiento: {len(X_train)} muestras")
     print(f"   • Prueba: {len(X_test)} muestras")
     print()
     
     # Crear y entrenar clasificador causal
-    print("🤖 Entrenando clasificador causal...")
+    print("Entrenando clasificador causal...")
     classifier = CausalClassifier(dag, 'riesgo_cardiovascular')
     classifier.fit(X_train, y_train)
-    print("✓ Clasificador entrenado exitosamente")
+    print("Clasificador entrenado exitosamente")
     print()
     
     # Realizar predicciones
-    print("🎯 Realizando predicciones...")
+    print("Realizando predicciones...")
     y_pred = classifier.predict(X_test)
     y_proba = classifier.predict_proba(X_test)
     
     # Evaluar rendimiento
     accuracy = accuracy_score(y_test, y_pred)
-    print(f"📈 Precisión del clasificador causal: {accuracy:.3f}")
+    print(f"Precisión del clasificador causal: {accuracy:.3f}")
     print()
     
     # Mostrar reporte detallado
-    print("📊 REPORTE DE CLASIFICACIÓN:")
+    print("REPORTE DE CLASIFICACIÓN:")
     print(classification_report(y_test, y_pred, 
                               target_names=['Bajo Riesgo', 'Alto Riesgo']))
     
@@ -625,13 +625,13 @@ if __name__ == "__main__":
     plt.show()
     
     # Importancia de características causales
-    print("\n🔍 IMPORTANCIA DE CARACTERÍSTICAS CAUSALES:")
+    print("\nIMPORTANCIA DE CARACTERÍSTICAS CAUSALES:")
     importance = classifier.get_feature_importance()
     for feature, imp in sorted(importance.items(), key=lambda x: x[1], reverse=True):
         print(f"   • {feature}: {imp:.3f}")
     
     print()
-    print("✅ Demo completada exitosamente!")
+    print("Demo completada exitosamente!")
     print("\nEste clasificador demuestra cómo los modelos causales pueden")
     print("mejorar la interpretabilidad y robustez de las predicciones")
     print("al incorporar conocimiento del dominio sobre relaciones causales.")
