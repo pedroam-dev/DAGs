@@ -385,27 +385,6 @@ def main():
     # Parte 5: Casos de uso
     tutorial_casos_uso()
     
-    print("\n¡TUTORIAL COMPLETADO!")
-    print("=" * 60)
-    print()
-    print("Lo que has aprendido:")
-    print("• Conceptos fundamentales de modelos causales")
-    print("• Cómo construir DAGs causales")
-    print("• Implementación de clasificadores causales")
-    print("• Ventajas sobre métodos tradicionales")
-    print("• Casos de uso en diferentes dominios")
-    print()
-    print("Próximos pasos:")
-    print("• Practica con tus propios datos")
-    print("• Explora ejemplos más avanzados")
-    print("• Lee sobre teoría de inferencia causal")
-    print("• Experimenta con diferentes estructuras causales")
-    print()
-    print("Recursos recomendados:")
-    print("• 'Causal Inference in Statistics' - Judea Pearl")
-    print("• 'The Book of Why' - Judea Pearl")
-    print("• 'Causal Inference: The Mixtape' - Scott Cunningham")
-
-
+    
 if __name__ == "__main__":
     main()
