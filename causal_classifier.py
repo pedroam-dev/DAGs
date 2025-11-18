@@ -4,9 +4,6 @@ Clasificador de Aprendizaje Causal usando DAGs (Directed Acyclic Graphs)
 
 Este módulo implementa un sistema de clasificación basado en modelos gráficos causales,
 permitiendo el análisis de relaciones causales entre variables y la inferencia causal.
-
-Autor: Pedro AM
-Fecha: Noviembre 2025
 """
 
 import numpy as np
