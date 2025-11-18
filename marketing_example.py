@@ -207,12 +207,12 @@ def visualize_results(results):
 
 def analyze_causal_insights(causal_clf, X_test, y_test):
     """Analiza insights causales del modelo."""
-    print("\n🔍 ANÁLISIS DE INSIGHTS CAUSALES")
+    print("\nANÁLISIS DE INSIGHTS CAUSALES")
     print("=" * 50)
     
     # Importancia causal
     importance = causal_clf.get_feature_importance()
-    print("\n📊 Importancia de Variables Causales:")
+    print("\nImportancia de Variables Causales:")
     for var, imp in sorted(importance.items(), key=lambda x: x[1], reverse=True):
         print(f"   • {var}: {imp:.3f}")
     
@@ -240,7 +240,7 @@ def analyze_causal_insights(causal_clf, X_test, y_test):
             canal_proba = causal_clf.predict_proba(X_test_copy[canal_mask])[:, 1]
             print(f"   • Canal {canal_names[canal]}: {canal_proba.mean():.3f} conv. promedio")
     
-    print("\n💡 Recomendaciones Causales:")
+    print("\nRecomendaciones Causales:")
     print("   • Variables con mayor impacto causal en conversión:")
     top_vars = sorted(importance.items(), key=lambda x: x[1], reverse=True)[:3]
     for var, imp in top_vars:
@@ -253,21 +253,21 @@ def analyze_causal_insights(causal_clf, X_test, y_test):
 
 
 if __name__ == "__main__":
-    print("📈 EJEMPLO AVANZADO: MARKETING DIGITAL")
+    print("EJEMPLO AVANZADO: MARKETING DIGITAL")
     print("=" * 60)
     
     # Generar datos
-    print("\n📊 Generando datos de marketing...")
+    print("\nGenerando datos de marketing...")
     X, y = generate_marketing_data(n_samples=1500)
     print(f"✓ Generadas {len(X)} muestras")
     print(f"✓ Tasa de conversión: {y.mean():.1%}")
     
     # Mostrar estadísticas descriptivas
-    print("\n📋 Estadísticas Descriptivas:")
+    print("\nEstadísticas Descriptivas:")
     print(X.describe().round(2))
     
     # Crear DAG
-    print("\n🏗️ Construyendo DAG causal de marketing...")
+    print("\nConstruyendo DAG causal de marketing...")
     dag = create_marketing_dag()
     print("✓ DAG creado exitosamente")
     
@@ -280,11 +280,11 @@ if __name__ == "__main__":
     )
     
     # Comparar clasificadores
-    print("\n🤖 Comparando clasificadores...")
+    print("\nComparando clasificadores...")
     results, causal_clf = compare_classifiers(X_train, X_test, y_train, y_test, dag)
     
     # Mostrar resultados
-    print("\n📈 RESULTADOS DE COMPARACIÓN:")
+    print("\nRESULTADOS DE COMPARACIÓN:")
     print("-" * 40)
     for method, metrics in results.items():
         print(f"{method:20s}: Accuracy = {metrics['accuracy']:.3f}, AUC = {metrics['auc']:.3f}")
@@ -296,7 +296,7 @@ if __name__ == "__main__":
     analyze_causal_insights(causal_clf, X_test, y_test)
     
     print("\n" + "=" * 60)
-    print("✅ EJEMPLO COMPLETADO")
+    print("EJEMPLO COMPLETADO")
     print("\nEste ejemplo demuestra cómo los modelos causales pueden")
     print("proporcionar insights accionables para estrategias de marketing,")
     print("superando a métodos tradicionales en interpretabilidad y")
