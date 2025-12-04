@@ -9,6 +9,7 @@ permitiendo el análisis de relaciones causales entre variables y la inferencia 
 import numpy as np
 import pandas as pd
 import networkx as nx
+from networkx.algorithms.d_separation import is_d_separator
 import matplotlib.pyplot as plt
 import seaborn as sns
 from scipy import stats
@@ -86,7 +87,7 @@ class CausalDAG:
         if Z is None:
             Z = []
         
-        return nx.d_separated(self.graph, {X}, {Y}, set(Z))
+        return is_d_separator(self.graph, {X}, {Y}, set(Z))
     
     def visualize(self, figsize: Tuple[int, int] = (12, 8), 
                  node_color: str = 'lightblue', 
